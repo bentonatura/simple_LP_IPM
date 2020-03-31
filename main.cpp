@@ -53,10 +53,14 @@ Matrix create_linear_system_matrix(Matrix A, Vector b, Vector c, Vector x, Vecto
     return M;
 }
 
-int main(int const, char **argv) {
+int main(int const argc, char **argv) {
     srand((unsigned int) time(0));
-    const int m = 5;
-    const int n = 10;
+    int m = 5;
+    int n = 10;
+    if(argc > 2){
+        m = std::atoi(argv[1]);
+        n = std::atoi(argv[2]);
+    }
     const int max_num_iterations = 50;
     const double max_step_length = 0.5;
 
